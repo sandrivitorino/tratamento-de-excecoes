@@ -38,19 +38,19 @@ public class Reservation {
         long diff = checkOut.getTime() - checkIn.getTime();
         return TimeUnit.DAYS.convert(diff, TimeUnit.MILLISECONDS);
     }
-
-    public String updateDates(Date checkIn, Date checkOut){
-        //SOLUÇÃO RUIM:
+    //SOLUÇÃO BOA:
+    public void updateDates(Date checkIn, Date checkOut){
         Date now = new Date();
         if(checkIn.before(now) || checkOut.before(now)){
-            return "Reservation dates for updates must be future ";
+            throw new IllegalArgumentException("Reservation dates for updates must be future dates ");
+            //Usamos essa excecao no Java quando os argumentos que passamos para o métodos sao invalidos.
         }
         if(!checkOut.after(checkIn)){
-            return "Check-out date must be after check-in date ";
+            throw new IllegalArgumentException("Check-out date must be after check-in date ");
         }
         this.checkIn = checkIn;
         this.checkOut = checkOut;
-        return null;
+
     }
 
     @Override
