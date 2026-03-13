@@ -40,7 +40,7 @@ These exercises helped reinforce how exception handling improves code quality an
 
 ---
 
-## 📌 Resumo (Português)
+## 🇧🇷 Resumo em português
 
 Neste módulo estudei como o Java trata erros durante a execução utilizando exceções e como escrever programas mais robustos e seguros.
 
